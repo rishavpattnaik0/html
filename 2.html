@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(255, 255, 255);
+        }
+    </style>
+</head>
+<body>
+    <h1 id="name"></h1>
+    <p id="marks"></p>
+</body>
+
+<script>
+    let a=document.getElementById("name");
+    let b=localStorage.getItem('name');
+    let c=document.getElementById('marks');
+    let d=localStorage.getItem('m1');
+    let e=localStorage.getItem('m2');
+    a.innerHTML+="Hello "  + b + " Welcome to Dashboard of Ritik Gandu";
+    c.innerHTML+="Your C1 marks are " + d + " C2 are " + e;
+</script>
+</html>

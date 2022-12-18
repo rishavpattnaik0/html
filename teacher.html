@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hellooo</h1>
+    
+        <h3>Shreyas</h3>
+        <p>C1</p><span><input type="Number" id="marks1"></span>
+        <button onclick="shreyas()">Submit</button>
+        <h3>Ritik</h3>
+        <p>C2</p><span><input type="Number" id="marks2"></span>
+        <button onclick="shreyas1()">Submit</button>
+</body>
+<script>
+
+let a=document.getElementById("marks1");
+let b=document.getElementById("marks2");
+ function shreyas(){
+    localStorage.setItem('m1',a.value);
+    alert("Successfull")
+ }
+
+ function shreyas1(){
+    localStorage.setItem('m2',b.value);
+ }
+</script>
+</html>

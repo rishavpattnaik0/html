@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="practiceform.css">
+        <title>FORM</title>
+    </head>
+    <body>
+        <style>
+            body{
+                background-color: rgba(160, 99, 56, 0.506);
+                color: rgb(55, 39, 19);
+                font-family: fantasy;
+                padding-left: 20%;
+            }
+        </style>
+    <h1 class="title">Login Board</h1>
+    <form name="myform">
+
+        <label> Firstname:</label>
+        <input type="text" id="firstname"><br>
+        <p id="ferror"></p>
+
+        <label> Lastname:</label>
+        <input type="text" id="lastname"><br>
+        <p id="lerror"></p>
+
+        <label> Gender:</label><br>
+        <input type="radio" value="male" id="gender1"> Male <br>  
+        <input type="radio" value="female" id="gender2"> Female <br>  
+        <input type="radio" value="other" id="gender3"> Other<br>
+        <p id="gerror"></p><br>
+        <br>
+
+        <label>Phone:</label>
+        <input type="number"  id="number" value="+91">
+        <p id="number1"></p>
+        <br>
+        <br>
+        <label>Email:</label>
+        <input type="email" id="email" name="email" required/><br>
+        <p id="emailid"></p>
+        <br>
+        <br>
+        <label>Password</label>
+        <input type="password" id="pass" name="pass"><br>
+        <p id="correct"></p>
+        <br><br>
+
+        <label>Re-type-Password</label>
+        <input type="password" id="repass" name="repass"><br>
+        <p id="incorrect"></p>
+        <br><br>
+    </form>
+    
+    <button type="submit" id="button" onclick="func();">Register</button>
+    </body> 
+</html>   
+
+
+<script>
+    function func()
+    {
+        var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        var regx = /^[6-9]\d{9}$/;
+        let fname=document.getElementById('firstname');
+        let lname=document.getElementById('lastname');
+        let gender1=document.getElementById('gender1');
+        let gender2=document.getElementById('gender2');
+        let gender3=document.getElementById('gender3');
+        let ferror=document.getElementById('ferror');
+        let lerror=document.getElementById('lerror');
+        let gerror=document.getElementById('gerror');
+        let mail=document.getElementById('email');
+        let emailid=document.getElementById('emailid');
+        let phoneno=document.getElementById('number');
+        let number1=document.getElementById('number1');
+        let password=document.getElementById('pass');
+        let repassword=document.getElementById('repass');
+        let incorrect=document.getElementById('incorrect');
+        let correct=document.getElementById('correct');
+
+        if(!fname.value)
+        {
+            ferror.innerHTML='please fill the firstname';
+            ferror.style.color='brown';
+            return false;
+        }
+        else
+        {
+            ferror.innerHTML='';
+            localStorage.setItem('name',fname.value);
+        }
+        
+        if(!lname.value)
+        {
+            lerror.innerHTML='please fill the lastname';
+            lerror.style.color='brown';
+            return false;
+        }
+        else
+        {
+            lerror.innerHTML='';
+        }
+
+        if(password.value.length<8)
+        {
+            alert('password cant be less then 8characters');
+        }
+        if(!password.value)
+        {
+            alert('Please enter value ');
+        }
+        else{
+            incorrect.innerHTML='';
+        }
+
+        if(password.value!=repassword.value)
+        {
+            incorrect.innerHTML='recheck password';
+            incorrect.style.color='red';
+            return false;
+        }
+        else{
+            incorrect.innerHTML='';
+            if(mail.value=="1@gmail.com")
+            {
+                window.location.replace("teacher.html");
+            }
+            else if(mail.value=="2@gmail.com") {
+                window.location.replace("2.html");
+            }
+            
+        }
+        if(!validRegex.test(mail.value))
+        {
+            emailid.innerHTML='please enter valid email';
+            emailid.style.color='red';
+            return false;
+        }
+        else{
+            email.innerHTML='';
+        }
+
+        if(!regx.test(phoneno.value) || !phoneno.value )
+        {
+
+            number1.innerHTML='please enter valid phone no';
+            number1.style.color='red';
+            return false;
+        }
+        else
+        {
+            number1.innerHTML='';
+            localStorage.setItem('number',phoneno.value);
+        }
+    }
+</script>
